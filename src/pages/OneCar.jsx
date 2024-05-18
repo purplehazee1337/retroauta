@@ -3,6 +3,12 @@ import React from "react";
 import client from "../client";
 import BlockContent from "@sanity/block-content-to-react";
 
+import ContactBtn from "../components/ContactBtn";
+import Footer from "../components/Footer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { animateScroll as scroll } from "react-scroll";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+
 const OneCar = () => {
   const { slug } = useParams();
 
@@ -52,9 +58,22 @@ const OneCar = () => {
       ></img>
       <BlockContent
         blocks={carsData && carsData[0].body}
-        projectId= {import.meta.env.VITE_SANITY_PROJECT_ID}
+        projectId={import.meta.env.VITE_SANITY_PROJECT_ID}
         dataset={import.meta.env.VITE_SANITY_DATASET}
       />
+
+      <div className="flex flex-col mt-4 mb-4">
+        <button
+          className="text-cyan-700"
+          onClick={() => {
+            scroll.scrollToTop();
+          }}
+        >
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+      </div>
+      <ContactBtn />
+      <Footer />
     </section>
   );
 };
