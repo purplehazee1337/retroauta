@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import {Home,Cars,Contact,About,Parts,OneCar} from "./pages/Index";
+import {Home,Cars,Contact,About,Parts,OneCar,OnePart} from "./pages/Index";
 
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/parts" element={<Parts/>} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/cars/:slug" element={<OneCar/>}/>
+          <Route path="/parts/:slug" element={<OnePart/>}/>
         </Routes>
       </Router>
     </main>

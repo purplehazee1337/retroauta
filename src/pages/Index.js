@@ -4,5 +4,6 @@ import Contact from "./Contact";
 import About from "./About";
 import Parts from './Parts';
 import OneCar from "./OneCar";
+import OnePart from "./OnePart";
 
-export {Home, Cars, Contact, About, Parts, OneCar};
+export {Home, Cars, Contact, About, Parts, OneCar, OnePart};

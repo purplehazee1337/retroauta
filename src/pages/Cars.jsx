@@ -12,30 +12,31 @@ const Cars = () => {
   const [carsData, setCarsData] = React.useState(null);
 
   React.useEffect(() => {
-    if (localStorage.getItem("sanityData") !== null)
-      return setCarsData(JSON.parse(localStorage.getItem("sanityData")));
+    if (sessionStorage.getItem("sanityData") !== null)
+      return setCarsData(JSON.parse(sessionStorage.getItem("sanityData")).filter((el) => el._type === 'samochod'));
 
     client
       .fetch(
-        `*[_type == 'samochod']{
-            title,
-            slug,
-            marka,
-            model,
-            publishedAt,
-            mainImage{
-              asset->{
-                _id,
-                url
-              }
-            },
-            body
-          }`
+        `*[_type in ['czesc', 'samochod']]{
+          title,
+          slug,
+          _type,
+          marka,
+          model,
+          amount,
+          publishedAt,
+          mainImage{
+            asset->{
+              _id,
+              url
+            }
+          },
+          body
+        }`
       )
       .then((data) => {
-        localStorage.setItem("sanityData", JSON.stringify(data));
-        setCarsData(data);
-        // console.log("data fetched");
+        sessionStorage.setItem("sanityData", JSON.stringify(data));
+        setCarsData(data.filter((el) => el._type === 'samochod'));
       })
       .catch((err) => console.error(err));
   }, []);
