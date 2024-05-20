@@ -8,7 +8,7 @@ const Part = (props) => {
       ></img>
     </div>
       
-      <div className="border-2 p-3 bg-cyan-700">
+      <div className="p-3 bg-cyan-700">
       <h2 className=" text-xl mainText z-10">{props.name}</h2>
       <p>Dostępna ilość: {props.amount}</p>
       </div>
