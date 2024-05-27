@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
-import Footer from '../components/Footer'
+import Footer from "../components/Footer";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -15,24 +16,33 @@ const Contact = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        to_name: "Adrian",
-        from_email: form.email,
-        to_email: "wjechowski@gmail.com",
-        message: form.message
-      },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
-    ).then(() => {
-      setIsLoading(false);
-      setForm({ name: "", email: "", message: "" });
-    }).catch((error) =>{
-      setIsLoading(false);
-      console.log(error);
-    })
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Kuba",
+          from_email: form.email,
+          to_email: import.meta.env.VITE_CLIENT_EMAIL,
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setIsLoading(false);
+        setForm({ name: "", email: "", message: "" });
+        Swal.fire({
+          title: "Success",
+          text: "Your message was sent successfully.",
+          icon: "success",
+          confirmButtonColor: "#0e7490",
+        });
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        console.log(error);
+      });
   };
 
   return (
@@ -80,18 +90,14 @@ const Contact = () => {
             />
           </label>
 
-          <button
-            type='submit'
-            disabled={loading}
-            className='btn'
-          >
+          <button type="submit" disabled={loading} className="btn">
             {loading ? "Sending..." : "Submit"}
           </button>
         </form>
       </div>
-      
+
       <div className="absolute bottom-5 left-0 right-0 z-10">
-      <Footer />
+        <Footer />
       </div>
     </section>
   );
