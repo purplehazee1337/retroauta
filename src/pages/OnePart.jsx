@@ -57,12 +57,13 @@ const OnePart = () => {
         src={partsData && partsData[0].mainImage.asset.url}
         className="w-full h-full object-cover brightness-90 mb-3"
       ></img>
+      <div className="text-slate-500">
       <BlockContent
         blocks={partsData && partsData[0].body}
         projectId={import.meta.env.VITE_SANITY_PROJECT_ID}
         dataset={import.meta.env.VITE_SANITY_DATASET}
       />
-
+      </div>
       <div className="flex flex-col mt-4 mb-4">
         <button
           className="text-cyan-700"
