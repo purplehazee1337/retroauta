@@ -50,7 +50,7 @@ const OneCar = () => {
 
   return (
     <section className="max-container ">
-      <h2>{carsData && carsData[0].publishedAt.slice(0, 10)}</h2>
+      <h2 className="text-slate-500">{carsData && carsData[0].publishedAt.slice(0, 10)}</h2>
       <h1 className="mainText head-text text-cyan-700">
         {carsData && carsData[0].title.toUpperCase()}
       </h1>

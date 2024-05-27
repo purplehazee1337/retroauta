@@ -52,11 +52,12 @@ const OnePart = () => {
       <h1 className="mainText head-text text-cyan-700">
         {partsData && partsData[0].title.toUpperCase()}
       </h1>
-      <h2>Dostępna ilość: {partsData && partsData[0].amount}</h2>
+      
       <img
         src={partsData && partsData[0].mainImage.asset.url}
         className="w-full h-full object-cover brightness-90 mb-3"
       ></img>
+      <h2 className="text-xl text-cyan-700">Dostępna ilość: {partsData && partsData[0].amount}</h2>
       <div className="text-slate-500">
       <BlockContent
         blocks={partsData && partsData[0].body}
