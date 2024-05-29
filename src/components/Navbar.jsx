@@ -8,7 +8,7 @@ const Navbar = () => {
         to="/"
         className="flex text-lg font-bold mainText"
       >
-        <p className="text-cyan-700 ">KAROLIK</p>
+        <p className="text-cyan-700 ">RETROAUTA</p>
       </NavLink>
       <nav className="flex text-lg gap-7 font-medium">
         <NavLink to="/about" className={({ isActive}) => isActive ? 
