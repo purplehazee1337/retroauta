@@ -42,6 +42,12 @@ const Contact = () => {
       .catch((error) => {
         setIsLoading(false);
         console.log(error);
+        Swal.fire({
+          title: "Error",
+          text: "Your message was not sent.",
+          icon: "error",
+          confirmButtonColor: "#0e7490",
+        });
       });
   };
 
