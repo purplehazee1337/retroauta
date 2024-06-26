@@ -1,8 +1,8 @@
-# React + Vite
+# Retroauta
+Strona stworzona jako wizytówka firmy zajmującej sie sprzedażą aut. Wykorzystuje ona system cms Sanity ,który został oddany w ręce klienta. Dzięki temu może zmianiać stan zakładek samochodów i części. Strona posiada działający formularz kontaktowy. [ link](https://www.retroauta.com/)
+## Strona
+![image](https://github.com/purplehazee1337/retroauta/assets/105674445/20e21249-8527-4e53-9fd3-fd9692f51b4b)
+## CMS sanity
+![image](https://github.com/purplehazee1337/retroauta/assets/105674445/903c1b31-6182-47c8-9ff5-bea96b6b06d9)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
